@@ -65,12 +65,15 @@ public class InMemoryUserAndRoleProvider implements UserProvider, RoleProvider {
 
   /** The digest user */
   public static final String DIGEST_USER_NAME = "System User";
+  public static final String CA_USER_NAME = "Capture Agent User";
 
   /** Configuration key for the digest user */
   public static final String DIGEST_USER_KEY = "org.opencastproject.security.digest.user";
+  public static final String CA_USER_KEY = "org.opencastproject.security.ca.user";
 
   /** Configuration key for the digest password */
   public static final String DIGEST_PASSWORD_KEY = "org.opencastproject.security.digest.pass";
+  public static final String CA_PASSWORD_KEY = "org.opencastproject.security.ca.pass";
 
   /** The list of in-memory users */
   private final List<User> inMemoryUsers = new ArrayList<User>();
@@ -82,7 +85,9 @@ public class InMemoryUserAndRoleProvider implements UserProvider, RoleProvider {
   protected SecurityService securityService;
 
   private String digestUsername;
+  private String caUsername;
   private String digestUserPass;
+  private String caUserPass;
 
   /**
    * Callback to activate the component.
@@ -97,6 +102,9 @@ public class InMemoryUserAndRoleProvider implements UserProvider, RoleProvider {
     digestUserPass = StringUtils.trimToNull(cc.getBundleContext().getProperty(DIGEST_PASSWORD_KEY));
     if (digestUsername == null)
       logger.warn("Digest password has not been configured ({})", DIGEST_PASSWORD_KEY);
+
+    caUsername = StringUtils.trimToNull(cc.getBundleContext().getProperty(CA_USER_KEY));
+    caUserPass = StringUtils.trimToNull(cc.getBundleContext().getProperty(CA_PASSWORD_KEY));
 
     // Create the digest user
     createSystemUsers();
@@ -114,18 +122,34 @@ public class InMemoryUserAndRoleProvider implements UserProvider, RoleProvider {
     for (Organization organization : orgDirectoryService.getOrganizations()) {
       JaxbOrganization jaxbOrganization = JaxbOrganization.fromOrganization(organization);
 
-      // Create the digest auth user with a clear text password
+      // Create the digest auth users with clear text passwords
+
+      // Role set for the system user
       Set<JaxbRole> roleList = new HashSet<JaxbRole>();
       for (String roleName : SecurityConstants.GLOBAL_SYSTEM_ROLES) {
         roleList.add(new JaxbRole(roleName, jaxbOrganization));
       }
 
-      // Create the digest user
+      // Role set for the capture agent user
+      Set<JaxbRole> caRoleList = new HashSet<JaxbRole>();
+      for (String roleName : SecurityConstants.GLOBAL_CA_ROLES) {
+        caRoleList.add(new JaxbRole(roleName, jaxbOrganization));
+      }
+
+      // Create the system user
       if (digestUsername != null && digestUserPass != null) {
-        logger.info("Creating the system digest user");
+        logger.info("Creating the system digest user '{}'", digestUsername);
         User digestUser = new JaxbUser(digestUsername, digestUserPass, DIGEST_USER_NAME, null, getName(), true,
                 jaxbOrganization, roleList);
         inMemoryUsers.add(digestUser);
+      }
+
+      // Create the capture agent user
+      if (caUsername != null && caUserPass != null) {
+        logger.info("Creating the capture agent digest user '{}'", caUsername);
+        User caUser = new JaxbUser(caUsername, caUserPass, CA_USER_NAME, null, getName(), true,
+                jaxbOrganization, caRoleList);
+        inMemoryUsers.add(caUser);
       }
     }
   }
