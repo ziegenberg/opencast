@@ -223,6 +223,11 @@ angular.module('adminNg.controllers')
                 $scope.general = EventGeneralResource.get({ id: id }, function () {
                     angular.forEach($scope.general.publications, function (publication) {
                         publication.label = publication.name;
+                        var now = new Date();
+                        if (publication.id == "engage-live" && 
+                        	(now < new Date($scope.general["start-date"]) || now > new Date($scope.general["end-date"])))
+                        	publication.enabled = false;
+                        else publication.enabled = true;
                     });
                     $scope.publicationChannelLabels = ResourcesListResource.get({ resource: 'PUBLICATION.CHANNEL.LABELS' }, function() {
                         angular.forEach($scope.general.publications, function (publication) {
