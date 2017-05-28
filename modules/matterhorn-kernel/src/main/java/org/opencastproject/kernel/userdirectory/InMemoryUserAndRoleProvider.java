@@ -45,6 +45,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashSet;
@@ -65,7 +66,7 @@ public class InMemoryUserAndRoleProvider implements UserProvider, RoleProvider {
 
   /** The digest user */
   public static final String DIGEST_USER_NAME = "System User";
-  public static final String CA_USER_NAME = "Capture Agent User";
+  public static final String CA_USER_NAME = "Capture Agent";
 
   /** Configuration key for the digest user */
   public static final String DIGEST_USER_KEY = "org.opencastproject.security.digest.user";
@@ -74,6 +75,9 @@ public class InMemoryUserAndRoleProvider implements UserProvider, RoleProvider {
   /** Configuration key for the digest password */
   public static final String DIGEST_PASSWORD_KEY = "org.opencastproject.security.digest.pass";
   public static final String CA_PASSWORD_KEY = "org.opencastproject.security.ca.pass";
+
+  /** Configuration key for optional additional roles for the CA user */
+  public static final String CA_EXTRA_ROLES_KEY = "org.opencastproject.security.ca.roles";
 
   /** The list of in-memory users */
   private final List<User> inMemoryUsers = new ArrayList<User>();
@@ -88,6 +92,7 @@ public class InMemoryUserAndRoleProvider implements UserProvider, RoleProvider {
   private String caUsername;
   private String digestUserPass;
   private String caUserPass;
+  private String caExtraRoles;
 
   /**
    * Callback to activate the component.
@@ -105,6 +110,7 @@ public class InMemoryUserAndRoleProvider implements UserProvider, RoleProvider {
 
     caUsername = StringUtils.trimToNull(cc.getBundleContext().getProperty(CA_USER_KEY));
     caUserPass = StringUtils.trimToNull(cc.getBundleContext().getProperty(CA_PASSWORD_KEY));
+    caExtraRoles = StringUtils.trimToNull(cc.getBundleContext().getProperty(CA_EXTRA_ROLES_KEY));
 
     // Create the digest user
     createSystemUsers();
@@ -134,6 +140,18 @@ public class InMemoryUserAndRoleProvider implements UserProvider, RoleProvider {
       Set<JaxbRole> caRoleList = new HashSet<JaxbRole>();
       for (String roleName : SecurityConstants.GLOBAL_CA_ROLES) {
         caRoleList.add(new JaxbRole(roleName, jaxbOrganization));
+      }
+
+      // Add the organization anonymous role to the CA user
+      caRoleList.add(new JaxbRole(organization.getAnonymousRole(), jaxbOrganization));
+
+      // Add any extra custom roles to the CA user
+      if ((caExtraRoles != null) && (caUsername != null)) {
+        List<String> items = Arrays.asList(caExtraRoles.split("\\s*,\\s*"));
+        for (String item : items) {
+          logger.debug("Adding custom role '{}' to CA user {}", item, caUsername);
+          caRoleList.add(new JaxbRole(item, jaxbOrganization));
+        }
       }
 
       // Create the system user
