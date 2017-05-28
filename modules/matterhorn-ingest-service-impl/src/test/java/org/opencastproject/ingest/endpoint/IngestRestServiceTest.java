@@ -27,6 +27,12 @@ import org.opencastproject.mediapackage.MediaPackageBuilderFactory;
 import org.opencastproject.mediapackage.MediaPackageElementFlavor;
 import org.opencastproject.mediapackage.MediaPackageParser;
 import org.opencastproject.mediapackage.identifier.UUIDIdBuilderImpl;
+import org.opencastproject.security.api.DefaultOrganization;
+import org.opencastproject.security.api.JaxbRole;
+import org.opencastproject.security.api.JaxbUser;
+import org.opencastproject.security.api.Organization;
+import org.opencastproject.security.api.SecurityService;
+import org.opencastproject.security.api.User;
 import org.opencastproject.util.NotFoundException;
 import org.opencastproject.util.UploadJob;
 import org.opencastproject.workflow.api.WorkflowInstance;
@@ -132,6 +138,7 @@ public class IngestRestServiceTest {
 
     // Set the service, and activate the rest endpoint
     restService.setIngestService(ingestService);
+
     restService.activate(null);
   }
 
@@ -228,6 +235,7 @@ public class IngestRestServiceTest {
   public void setupAndTestIngestingLimit(String limit, int numberOfIngests, int expectedOK, int expectedBusy) {
     restService = new IngestRestService();
     restService.setIngestService(setupAddZippedMediaPackageIngestService());
+    restService.setSecurityService(setupSecurityService());
     restService.activate(setupAddZippedMediaPackageComponentContext(limit));
 
     limitVerifier = new LimitVerifier(numberOfIngests);
@@ -331,6 +339,7 @@ public class IngestRestServiceTest {
   private BundleContext setupAddZippedMediaPackageBundleContext(String limit) {
     BundleContext bc = EasyMock.createNiceMock(BundleContext.class);
     EasyMock.expect(bc.getProperty(IngestRestService.DEFAULT_WORKFLOW_DEFINITION)).andReturn("full").anyTimes();
+    EasyMock.expect(bc.getProperty("org.opencastproject.security.digest.user")).andReturn("opencast_digest_user").anyTimes();
     if (StringUtils.trimToNull(limit) != null) {
       EasyMock.expect(bc.getProperty(IngestRestService.MAX_INGESTS_KEY)).andReturn(limit).anyTimes();
     }
@@ -365,6 +374,22 @@ public class IngestRestServiceTest {
     }
     EasyMock.replay(ingestService);
     return ingestService;
+  }
+
+  private SecurityService setupSecurityService() {
+
+    // Create a mock security service
+    User anonymous = new JaxbUser("anonymous", "test", new DefaultOrganization(), new JaxbRole(
+            DefaultOrganization.DEFAULT_ORGANIZATION_ANONYMOUS, new DefaultOrganization()));
+
+    Organization organization = new DefaultOrganization();
+
+    SecurityService securityService = EasyMock.createNiceMock(SecurityService.class);
+    EasyMock.expect(securityService.getUser()).andReturn(anonymous).anyTimes();
+    EasyMock.expect(securityService.getOrganization()).andReturn(organization).anyTimes();
+    EasyMock.replay(securityService);
+
+    return securityService;
   }
 
   @Test
