@@ -238,7 +238,7 @@
     <sec:intercept-url pattern="/export/**" method="GET" access="ROLE_ANONYMOUS" />
 
     <!-- Enable anonymous access to the annotation and the series endpoints -->
-    <sec:intercept-url pattern="/series/**" method="GET" access="ROLE_ANONYMOUS" />
+    <sec:intercept-url pattern="/series/**" method="GET" access="ROLE_ANONYMOUS, ROLE_CA" />
     <sec:intercept-url pattern="/annotation/**" method="GET" access="ROLE_ANONYMOUS" />
     <sec:intercept-url pattern="/annotation/**" method="PUT" access="ROLE_ANONYMOUS" />
 
@@ -253,12 +253,17 @@
     <sec:intercept-url pattern="/feeds/**" method="GET" access="ROLE_ANONYMOUS" />
 
     <!-- Secure the system management URLs for admins only -->
-    <sec:intercept-url pattern="/services/*" access="ROLE_ADMIN" />
+    <sec:intercept-url pattern="/services/*" method="PUT" access="ROLE_ADMIN" />
+    <sec:intercept-url pattern="/services/*" method="POST" access="ROLE_ADMIN" />
+    <sec:intercept-url pattern="/services/*" method="DELETE" access="ROLE_ADMIN" />
+    <sec:intercept-url pattern="/services/*" method="GET" access="ROLE_ADMIN, ROLE_CA" />
     <sec:intercept-url pattern="/signing/**" access="ROLE_ADMIN" />
     <sec:intercept-url pattern="/system/**" access="ROLE_ADMIN" />
     <sec:intercept-url pattern="/config/**" access="ROLE_ADMIN" />
 
-    <!-- Enable capture agent ingest -->
+    <!-- Enable capture agent updates and ingest -->
+    <sec:intercept-url pattern="/capture-admin/**" access="ROLE_ADMIN, ROLE_CA" />
+    <sec:intercept-url pattern="/recordings/**" method="GET" access="ROLE_ADMIN, ROLE_CA" />
     <sec:intercept-url pattern="/ingest/**" access="ROLE_ADMIN, ROLE_CA" />
 
     <!-- Secure the user management URLs for admins only -->
