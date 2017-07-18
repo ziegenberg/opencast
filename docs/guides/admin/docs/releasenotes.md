@@ -1,36 +1,28 @@
-Opencast NEXT: Release Notes
-============================
+Opencast 4: Release Notes
+=========================
+
+Release Schedule
+----------------
+
+|Date                          |Phase
+|------------------------------|------------------------------------------
+|Sept 22th                     |Feature Freeze
+|Sept 25th - Oct 13th          |Internal QA and bug fixing phase
+|Oct 16th  - Nov 3th           |Public QA phase
+|Nov 6th   - Nov 24th          |Additional bug fixing phase
+|Nov 20th  - Nov 24th          |Translation week
+|Nov 27th  - Nov 3rd           |Final QA phase
+|Dez 7th                       |Release of Opencast 3
 
 New Features and Improvements
 -----------------------------
 
-- Improved video editor
-- Improved “Add Event” wizard
-- Capture agent status indicators
-- Accessibility of the admin interface
-- Piwik integration (User statistics for the player)
-- Update to user and role interfaces
-- OAI-PMH Integration
-- Sakai User provider
-- New REST endpoint documentation interface
-- ProbeResolution workflow operation handlers
-- AnalyzeTracks workflow operation handlers
-- TagByDCTerm workflow operation handlers
-- ConfigureByDCTerm workflow operation handlers
-- AWS S3 integration
-- Database connection pooling
-- Comprehensive LDAP integration (sans CAS)
-- Captions for player
-- Import media packages (keep identifiers)
-- Update to Karaf 4
-- Capture agent error state
-- New waveform service
-- Shibboleth/AAI
-- Watermark support for themes
-- Add support for title slides
 
+Capture Agent API Changes
+-------------------------
 
-Configuration Changes
----------------------
-
-- MH-11861 needs the admin search index to be rebuilded
+- The new scheduler now creates a media package for each event which holds all assets as soon as the schedule is
+  created. This makes it unnecessary for any capture agent to download and re-ingest any media package elements unless
+  they are modified by the capture agent. Note that re-ingested media package elements will overwrite scheduled
+  elements. Hence a capture agent may modify these data. If not required for the inner workings of the capture agent, we
+  advise to not download, modify and upload any media package elements to avoid errors.
