@@ -736,6 +736,9 @@ public class EventsEndpoint implements ManagedService {
       fields.add(f("subjects", arr()));
     }
     fields.add(f("title", v(event.getTitle(), BLANK)));
+    if (event.getSeriesId() != null) {
+      fields.add(f("series_id", vN(event.getSeriesId())));
+    }
     if (withAcl != null && withAcl) {
       AccessControlList acl = getAclFromEvent(event);
       fields.add(f("acl", arr(AclUtils.serializeAclToJson(acl))));
