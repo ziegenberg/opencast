@@ -372,8 +372,12 @@
                    "DETAIL": "The file contains only audio."
                },
                "MULTIPLE_PARTS": {
-                   "SHORT": "Multiple parts",
-                   "DETAIL": "A set of files containing different parts of the event."
+                   "SHORT": "Presenter/multipart",
+                   "DETAIL": "One file or multiple chunked recordings (same codecs) of a person speaking to an audience."
+               },
+               "MULTIPLE_TRACKS": {
+                   "SHORT": "Multiple tracks",
+                   "DETAIL": "The file contains 2 recordings: A presenter speaking and a slide presentation."
                }
            },
            "DATE_TIME": {

@@ -144,6 +144,7 @@ var maxWaveformZoomSlider = 400;
 var insertedFirstItem = false;
 var insertedLastItem = false;
 
+
 /******************************************************************************/
 // editor
 /******************************************************************************/
@@ -820,7 +821,7 @@ function getAllStringsOf(str, startStr, endStr) {
         if (tmp && (tmp != "")) {
             result[result.length] = tmp;
         }
-        strCpy = strCpy.substring(str.indexOf(endStr) + endStr.length, strCpy.length);
+        strCpy = strCpy.substring(strCpy.indexOf(endStr) + endStr.length); 
     }
     return result;
 }
