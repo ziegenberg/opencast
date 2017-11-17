@@ -35,7 +35,5 @@
   "no_data":"No data available.",
   "login_success":"Login successful.",
   "login_failed":"Login failed.",
-  "not_logged_in":"Not logged in.",
-  "live_in_progress": "Live (in progress)",
-  "live_not_in_progress": "Live (not in progress)"  
+  "not_logged_in":"Not logged in."
 }
