@@ -72,8 +72,6 @@
     <module>modules/matterhorn-dictionary-hunspell</module>
     <module>modules/matterhorn-dictionary-none</module>
     <module>modules/matterhorn-dictionary-regexp</module>
-    <module>modules/matterhorn-distribution-service-acl</module>
-    <module>modules/matterhorn-distribution-service-acl-remote</module>
     <module>modules/matterhorn-distribution-service-api</module>
     <module>modules/matterhorn-distribution-service-aws-s3</module>
     <module>modules/matterhorn-distribution-service-aws-s3-api</module>

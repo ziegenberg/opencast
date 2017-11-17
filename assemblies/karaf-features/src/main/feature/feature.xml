@@ -173,7 +173,6 @@
     <bundle start-level="82">mvn:org.opencastproject/matterhorn-dataloader/${project.version}</bundle>
     <bundle start-level="82">mvn:org.opencastproject/matterhorn-dictionary-api/${project.version}</bundle>
     <bundle start-level="82">mvn:org.opencastproject/matterhorn-dictionary-regexp/${project.version}</bundle>
-    <bundle start-level="82">mvn:org.opencastproject/matterhorn-distribution-service-acl/${project.version}</bundle>
     <bundle start-level="82">mvn:org.opencastproject/matterhorn-distribution-service-api/${project.version}</bundle>
     <bundle start-level="82">mvn:org.opencastproject/matterhorn-distribution-service-aws-s3/${project.version}</bundle>
     <bundle start-level="82">mvn:org.opencastproject/matterhorn-distribution-service-aws-s3-api/${project.version}</bundle>
@@ -292,7 +291,6 @@
     <bundle start-level="82">mvn:org.opencastproject/matterhorn-cover-image-remote/${project.version}</bundle>
     <bundle start-level="82">mvn:org.opencastproject/matterhorn-cover-image-workflowoperation/${project.version}</bundle>
     <bundle start-level="82">mvn:org.opencastproject/matterhorn-dataloader/${project.version}</bundle>
-    <bundle start-level="82">mvn:org.opencastproject/matterhorn-distribution-service-acl/${project.version}</bundle>
     <bundle start-level="82">mvn:org.opencastproject/matterhorn-distribution-service-api/${project.version}</bundle>
     <bundle start-level="82">mvn:org.opencastproject/matterhorn-distribution-service-aws-s3-api/${project.version}</bundle>
     <bundle start-level="82">mvn:org.opencastproject/matterhorn-distribution-service-aws-s3-remote/${project.version}</bundle>
@@ -394,7 +392,6 @@
     <bundle start-level="82">mvn:org.opencastproject/matterhorn-cover-image-remote/${project.version}</bundle>
     <bundle start-level="82">mvn:org.opencastproject/matterhorn-cover-image-workflowoperation/${project.version}</bundle>
     <bundle start-level="82">mvn:org.opencastproject/matterhorn-dataloader/${project.version}</bundle>
-    <bundle start-level="82">mvn:org.opencastproject/matterhorn-distribution-service-acl/${project.version}</bundle>
     <bundle start-level="82">mvn:org.opencastproject/matterhorn-distribution-service-api/${project.version}</bundle>
     <bundle start-level="82">mvn:org.opencastproject/matterhorn-distribution-service-aws-s3-api/${project.version}</bundle>
     <bundle start-level="82">mvn:org.opencastproject/matterhorn-distribution-service-aws-s3/${project.version}</bundle>
@@ -572,7 +569,6 @@
     <bundle start-level="82">mvn:org.opencastproject/matterhorn-dataloader/${project.version}</bundle>
     <bundle start-level="82">mvn:org.opencastproject/matterhorn-dictionary-api/${project.version}</bundle>
     <bundle start-level="82">mvn:org.opencastproject/matterhorn-dictionary-regexp/${project.version}</bundle>
-    <bundle start-level="82">mvn:org.opencastproject/matterhorn-distribution-service-acl/${project.version}</bundle>
     <bundle start-level="82">mvn:org.opencastproject/matterhorn-distribution-service-api/${project.version}</bundle>
     <bundle start-level="82">mvn:org.opencastproject/matterhorn-distribution-service-aws-s3-api/${project.version}</bundle>
     <bundle start-level="82">mvn:org.opencastproject/matterhorn-distribution-service-aws-s3-remote/${project.version}</bundle>
@@ -656,7 +652,6 @@
 
     <bundle start-level="82">mvn:org.opencastproject/matterhorn-annotation-api/${project.version}</bundle>
     <bundle start-level="82">mvn:org.opencastproject/matterhorn-annotation-impl/${project.version}</bundle>
-    <bundle start-level="82">mvn:org.opencastproject/matterhorn-distribution-service-acl/${project.version}</bundle>
     <bundle start-level="82">mvn:org.opencastproject/matterhorn-distribution-service-api/${project.version}</bundle>
     <bundle start-level="82">mvn:org.opencastproject/matterhorn-distribution-service-aws-s3-api/${project.version}</bundle>
     <bundle start-level="82">mvn:org.opencastproject/matterhorn-distribution-service-aws-s3/${project.version}</bundle>
