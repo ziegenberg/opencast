@@ -1534,6 +1534,7 @@
    "VIDEO_TOOL": {
      "TIMELINE": "Timeline",
      "ZOOMLEVEL": "Zoom Level",
+     "PREVIEW_MODE": "Preview Mode",
      "ZOOM": "Zoom",
      "BUTTONS": {
        "CLOSE":       "Close",
