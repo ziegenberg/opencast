@@ -35,6 +35,7 @@ The following table contains the workflow operations that are available in an ou
 |configure-by-dcterm |Set workflow parameter if dublincore term matches value        |[Documentation](configure-by-dcterm-woh.md)|
 |copy                |Copy media package elements to target directory                |[Documentation](copy-woh.md)|
 |cover-image         |Generate a cover-image containing metadata                     |[Documentation](coverimage-woh.md)|
+|create-event        |Create an event by cloning an existing one                     |[Documentation](create-event-woh.md)|
 |defaults            |Applies default workflow configuration values                  |[Documentation](defaults-woh.md)|
 |editor              |Waiting for user to review, then cut video based on edit-list  |[Documentation](editor-woh.md)|
 |encode              |Encode media files to differents formats in parallel           |[Documentation](encode-woh.md)|

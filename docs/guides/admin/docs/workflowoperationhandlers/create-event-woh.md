@@ -1,0 +1,45 @@
+Create Event Workflow Operation
+===============================
+
+```Id: create-event```
+
+Description
+-----------
+
+The create event operation can be used to create an event by copying an existing one. The main use case are events,
+which contain a series of different presentations which were all recorded with just one recording. In order to create
+seperate events for each presentation, the original recording can be copied and each copy can be cut to only contain
+one presentation. This operation only works with events, which were not published, yet.
+
+Parameter Table
+---------------
+
+|Configuration Key  |Example                                    |Description                                          |
+|-------------------|-------------------------------------------|-----------------------------------------------------|
+|source-flavors     |`archive`                                  |Copy any mediapackage elements with one of these (comma separated) flavors.|
+|source-tags        |`*/*`                                      |Copy any mediapackage elements with one of these (comma separated) tags.|
+|target-tags        |`+copied`                                  |Apply these (comma separated) tags to any copied media package elements. If a target-tag starts with a '-', it will be removed from preexisting tags, if a target-tag starts with a '+', it will be added to preexisting tags. If there is no prefix, all preexisting tags are removed and replaced by the target-tags.|
+|property-namespaces|`org.opencastproject.assetmanager.security`|Copy all asset manager properties of these (comma separated) namespaces.|
+|copy-number-prefix |`copy`                                     |The prefix used for the number of the copy which is appended to the title of the new event.     |
+
+
+Operation Example
+-----------------
+
+    <operation
+      id="create-event"
+      fail-on-error="true"
+      exception-handler-workflow="ng-partial-error"
+      description="Create new events">
+      <configurations>
+        <configuration key="source-tags">archive</configuration>
+        <configuration key="source-flavors">*/*</configuration>
+        <configuration key="number-of-events">${numberOfEvents}</configuration>
+        <configuration key="target-tags"></configuration>
+        <configuration key="property-namespaces">
+          org.opencastproject.assetmanager.security,org.opencastproject.scheduler
+        </configuration>
+        <configuration key="copy-number-prefix">copy</configuration>
+      </configurations>
+    </operation>
+

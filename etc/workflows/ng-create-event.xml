@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<definition xmlns="http://workflow.opencastproject.org">
+
+  <id>ng-create-event</id>
+  <title>Create New Events</title>
+  <tags>
+    <tag>archive-ng</tag>
+  </tags>
+  <description/>
+  <configuration_panel>
+    <![CDATA[
+      <div id="workflow-configuration">
+        <fieldset>
+          <input
+            id="numberOfEvents"
+            name="numberOfEvents"
+            type="number"
+            class="configField"
+            onkeypress="return event.charCode > 47"
+            min="1"
+            value="1" />
+          <label for="numberOfEvents">Number of Events</label>
+        </fieldset>
+      </div>
+    ]]>
+  </configuration_panel>
+
+  <operations>
+
+    <!-- Apply the default workflow configuration -->
+
+    <operation
+      id="defaults"
+      description="Applying default configuration values">
+      <configurations>
+        <configuration key="numberOfEvents">1</configuration>
+      </configurations>
+    </operation>
+
+    <!-- Create the new events -->
+    <operation
+      id="create-event"
+      fail-on-error="true"
+      exception-handler-workflow="ng-partial-error"
+      description="Create new events">
+      <configurations>
+        <configuration key="source-tags">archive</configuration>
+        <configuration key="source-flavors">*/*</configuration>
+        <configuration key="number-of-events">${numberOfEvents}</configuration>
+        <configuration key="target-tags"></configuration>
+        <configuration key="property-namespaces">org.opencastproject.assetmanager.security,org.opencastproject.scheduler</configuration>
+        <configuration key="copy-number-prefix">copy</configuration>
+      </configurations>
+    </operation>
+
+  </operations>
+
+</definition>

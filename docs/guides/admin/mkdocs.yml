@@ -92,6 +92,7 @@ pages:
    - Configure-By-DCTerm: 'workflowoperationhandlers/configure-by-dcterm-woh.md'
    - Copy: 'workflowoperationhandlers/copy-woh.md'
    - Cover Image: 'workflowoperationhandlers/coverimage-woh.md'
+   - Create Event: 'workflowoperationhandlers/create-event-woh.md'
    - Defaults: 'workflowoperationhandlers/defaults-woh.md'
    - Editor: 'workflowoperationhandlers/editor-woh.md'
    - Encode: 'workflowoperationhandlers/encode-woh.md'
