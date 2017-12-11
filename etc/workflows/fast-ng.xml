@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <definition xmlns="http://workflow.opencastproject.org">
 
-  <id>fast</id>
+  <id>ng-fast</id>
   <title>Fast Testing Workflow</title>
   <tags>
     <tag>upload-ng</tag>
