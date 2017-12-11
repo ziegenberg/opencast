@@ -24,7 +24,8 @@ pages:
    - Installation from Source:
       - Linux: 'installation/source-linux.md'
       - MacOS X: 'installation/source-macosx.md'
-   - Installation from Package (RPM):
+   - Installation from Package:
+      - Debian/Ubuntu: 'installation/debs.md'
       - Fedora: 'installation/rpm-fedora.md'
       - RHEL/CentOS: 'installation/rpm-rhel-sl-centos.md'
    - Installation with Docker:
@@ -94,15 +95,18 @@ pages:
    - Defaults: 'workflowoperationhandlers/defaults-woh.md'
    - Editor: 'workflowoperationhandlers/editor-woh.md'
    - Encode: 'workflowoperationhandlers/encode-woh.md'
+   - Error Resolution: 'workflowoperationhandlers/error-resolution-woh.md'   
    - Execute Once: 'workflowoperationhandlers/execute-once-woh.md'
    - Execute Many: 'workflowoperationhandlers/execute-many-woh.md'
    - Export Workflow Properties: 'workflowoperationhandlers/export-wf-properties-woh.md'
    - Extract Text: 'workflowoperationhandlers/extracttext-woh.md'
+   - Failing: 'workflowoperationhandlers/failing-woh.md'
    - HTTP Notify: 'workflowoperationhandlers/httpnotify-woh.md'
    - Image: 'workflowoperationhandlers/image-woh.md'
    - Image to Video: 'workflowoperationhandlers/imagetovideo-woh.md'
    - Import Workflow Properties: 'workflowoperationhandlers/import-wf-properties-woh.md'
    - Incident: 'workflowoperationhandlers/incident-woh.md'
+   - Include: 'workflowoperationhandlers/include-woh.md'
    - Ingest-Download: 'workflowoperationhandlers/ingestdownload-woh.md'
    - Inspect: 'workflowoperationhandlers/inspect-woh.md'
    - Normalize Audio: 'workflowoperationhandlers/normalizeaudio-woh.md'

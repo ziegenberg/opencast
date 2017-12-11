@@ -38,15 +38,18 @@ The following table contains the workflow operations that are available in an ou
 |defaults            |Applies default workflow configuration values                  |[Documentation](defaults-woh.md)|
 |editor              |Waiting for user to review, then cut video based on edit-list  |[Documentation](editor-woh.md)|
 |encode              |Encode media files to differents formats in parallel           |[Documentation](encode-woh.md)|
+|error-resolution    |Internal operation to pause a workflow in error                |[Documentation](error-resolution-woh.md)|
 |execute-many        |Execute a command for each matching element in a MediaPackage  |[Documentation](execute-many-woh.md)
 |execute-once        |Execute a command for a MediaPackage                           |[Documentation](execute-once-woh.md)
 |export-wf-properties|Export workflow properties                                     |[Documentation](export-wf-properties-woh.md)|
 |extract-text        |Extracting text from presentation segments                     |[Documentation](extracttext-woh.md)|
+|failing             |Operations that always fails                                   |[Documentation](failing-woh.md)|
 |http-notify         |Notifies an HTTP endpoint about the process of the workflow    |[Documentation](httpnotify-woh.md)|
 |image               |Extract images from a video using FFmpeg                       |[Documentation](image-woh.md)|
 |image-to-video      |Create a video track from a source image                       |[Documentation](imagetovideo-woh.md)|
 |import-wf-properties|Import workflow properties                                     |[Documentation](import-wf-properties-woh.md)|
 |incident            |Testing incidents on a dummy job                               |[Documentation](incident-woh.md)|
+|include             |Include workflow definition in current workflow                |[Documentation](include-woh.md)|
 |ingest-download     |Download files from external URL for ingest                    |[Documentation](ingestdownload-woh.md)|
 |inspect             |Inspect the media (check if it is valid)                       |[Documentation](inspect-woh.md)|
 |normalize-audio     |Normalize first audio stream                                   |[Documentation](normalizeaudio-woh.md)|
