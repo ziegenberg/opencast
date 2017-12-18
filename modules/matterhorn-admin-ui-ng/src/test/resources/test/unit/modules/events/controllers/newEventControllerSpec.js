@@ -78,7 +78,7 @@ describe('New Event Controller', function () {
 
         it('saves collected userdata', function () {
             $httpBackend.whenGET('/admin-ng/event/new/access').respond('{access: { access: {acl: 345}}}');
-            $httpBackend.expectGET('/admin-ng/event/new/processing?tags=upload-ng,schedule-ng').respond(200);
+            $httpBackend.expectGET('/admin-ng/event/new/processing?tags=upload,schedule').respond(200);
             $httpBackend.expectPOST('/admin-ng/event/new').respond(201);
             $scope.submit();
             $httpBackend.flush();
@@ -87,7 +87,7 @@ describe('New Event Controller', function () {
         describe('on success', function () {
             beforeEach(function () {
                 $httpBackend.whenGET('/admin-ng/event/new/access').respond('{access: { access: {acl: 345}}}');
-                $httpBackend.expectGET('/admin-ng/event/new/processing?tags=upload-ng,schedule-ng').respond(200);
+                $httpBackend.expectGET('/admin-ng/event/new/processing?tags=upload,schedule').respond(200);
                 $httpBackend.whenPOST('/admin-ng/event/new').respond(201);
             });
 
@@ -110,7 +110,7 @@ describe('New Event Controller', function () {
         describe('on error', function () {
             beforeEach(function () {
                 $httpBackend.whenGET('/admin-ng/event/new/access').respond('{access: { access: {acl: 345}}}');
-                $httpBackend.expectGET('/admin-ng/event/new/processing?tags=upload-ng,schedule-ng').respond(200);
+                $httpBackend.expectGET('/admin-ng/event/new/processing?tags=upload,schedule').respond(200);
                 $httpBackend.whenPOST('/admin-ng/event/new').respond(500);
             });
 

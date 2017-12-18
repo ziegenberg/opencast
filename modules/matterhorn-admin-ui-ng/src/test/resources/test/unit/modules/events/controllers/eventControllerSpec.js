@@ -52,7 +52,7 @@ describe('Event controller', function () {
         $httpBackend.whenGET('/admin-ng/resources/ROLES.json').respond({});
         $httpBackend.whenGET('/admin-ng/resources/PUBLICATION.CHANNEL.LABELS.json').respond({});
         $httpBackend.whenGET('/admin-ng/resources/PUBLICATION.CHANNEL.ICONS.json').respond({});
-        $httpBackend.whenGET('/admin-ng/event/new/processing?tags=schedule-ng').respond({});
+        $httpBackend.whenGET('/admin-ng/event/new/processing?tags=schedule').respond({});
         $httpBackend.whenGET('/admin-ng/event/40518/hasActiveTransaction').respond('false');
         $httpBackend.whenGET('/admin-ng/capture-agents/agents.json').respond(JSON.stringify({"results":[],"total":0}));
         $httpBackend.whenGET('/admin-ng/capture-agents/agents.json?inputs=true').respond(JSON.stringify({"results":[],"total":0}));
@@ -290,7 +290,7 @@ describe('Event controller', function () {
             expect($scope.severityColor('warning')).toEqual('yellow');
         });
     });
-    
+
     describe('#workflowAction', function () {
         beforeEach(function () {
             spyOn(Notifications, 'add');
@@ -341,5 +341,5 @@ describe('Event controller', function () {
             });
         });
     });
-    
+
 });
