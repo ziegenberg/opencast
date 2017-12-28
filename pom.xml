@@ -89,6 +89,7 @@
     <module>modules/matterhorn-email-template-service-api</module>
     <module>modules/matterhorn-email-template-service-impl</module>
     <module>modules/matterhorn-event-comment</module>
+    <module>modules/matterhorn-engage-paella-player</module>
     <module>modules/matterhorn-engage-theodul-api</module>
     <module>modules/matterhorn-engage-theodul-core</module>
     <module>modules/matterhorn-engage-theodul-plugin-archetype</module>
