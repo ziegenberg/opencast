@@ -18,7 +18,7 @@
  * the License.
  *
  */
-import { addDictionary, Paella } from 'paella-core';
+import { Paella } from 'paella-core';
 import getBasicPluginContext from 'paella-basic-plugins';
 import getSlidePluginContext from 'paella-slide-plugins';
 import getZoomPluginContext from 'paella-zoom-plugin';
@@ -41,11 +41,11 @@ const initParams = {
 
   repositoryUrl: '/search/episode.json',
 
-  getManifestUrl: (repoUrl,videoId,player) => {
+  getManifestUrl: (repoUrl,videoId) => {
     return `${repoUrl}?id=${videoId}`;
   },
 
-  getManifestFileUrl: (manifestUrl, manifestFileName, player) => {
+  getManifestFileUrl: (manifestUrl) => {
     return manifestUrl;
   },
 
@@ -92,7 +92,6 @@ const initParams = {
       }
       else {
         // TODO: the video does not exist or the user can't see it
-        alert('The video does not exist');
         return null;
       }
     }

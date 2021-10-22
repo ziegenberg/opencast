@@ -32,11 +32,9 @@ export default class DescriptionPlugin extends PopUpButtonPlugin {
   async getContent() {
     const {
       title,
-      duration,
       creators,
       language,
       series,
-      seriesTitle,
       date,
       views
     } = this.player.videoManifest.metadata;

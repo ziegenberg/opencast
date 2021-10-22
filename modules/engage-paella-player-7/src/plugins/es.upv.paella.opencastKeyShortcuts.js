@@ -30,7 +30,7 @@ export default class OpencastKeyShortcuts extends KeyShortcutPlugin {
           ctrlKey: true
         },
         description: 'Mute audio',
-        action: async event => {
+        action: async () => {
           await this.player.videoContainer?.setVolume(0);
         }
       },
@@ -41,7 +41,7 @@ export default class OpencastKeyShortcuts extends KeyShortcutPlugin {
           ctrlKey: true
         },
         description: 'Toggle play pause',
-        action: async event => {
+        action: async () => {
           const paused = await this.player.paused();
           if (paused) {
             await this.player.play();
@@ -58,7 +58,7 @@ export default class OpencastKeyShortcuts extends KeyShortcutPlugin {
           ctrlKey: true
         },
         description: 'Pause video',
-        action: async event => {
+        action: async () => {
           await this.player.pause();
         }
       },
@@ -69,7 +69,7 @@ export default class OpencastKeyShortcuts extends KeyShortcutPlugin {
           ctrlKey: true
         },
         description: 'Increment audio volume',
-        action: async event => {
+        action: async () => {
           const vol = await this.player.videoContainer?.volume();
           if (vol) {
             await this.player.videoContainer?.setVolume(
@@ -85,7 +85,7 @@ export default class OpencastKeyShortcuts extends KeyShortcutPlugin {
           ctrlKey: true
         },
         description: 'Decrement audio volume',
-        action: async event => {
+        action: async () => {
           const vol = await this.player.videoContainer?.volume();
           if (vol) {
             await this.player.videoContainer?.setVolume(

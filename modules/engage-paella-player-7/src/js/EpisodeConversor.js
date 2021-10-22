@@ -19,8 +19,6 @@
  *
  */
 /* eslint no-console: "warn" */
-import { Data } from 'paella-core';
-
 const g_contentTypes = {
   'presentation/delivery': 'presentation',
   'presenter/delivery': 'presenter'
@@ -79,7 +77,7 @@ const g_streamTypes = [
   }
 ];
 
-function getStreamType(track,config) {
+function getStreamType(track) {
   const result = g_streamTypes.find(typeData => {
     let match = typeData.enabled;
     for (const condition in typeData.conditions) {
@@ -111,12 +109,12 @@ function getSourceData(track, config) {
   return data;
 }
 
-function getMetadata(episode, config) {
+function getMetadata(episode) {
   const { duration, title, language, series, seriestitle } = episode.mediapackage;
   const date = new Date(episode.dcCreated);
-  const creators = (Array.isArray(episode.mediapackage?.creators) ?
-    episode.mediapackage?.creators :
-    [episode.mediapackage?.creators])
+  const creators = (Array.isArray(episode?.mediapackage?.creators) ?
+    episode.mediapackage.creators :
+    [episode?.mediapackage?.creators])
             .map(creator => creator.creator);
 
   const result = {
@@ -159,7 +157,7 @@ function mergeSources(sources, config) {
 }
 
 function getStreams(episode, config) {
-  let { track } = episode.mediapackage?.media;
+  let { track } = episode.mediapackage.media;
   if (!Array.isArray(track)) {
     track = [track];
   }
@@ -174,7 +172,7 @@ function getStreams(episode, config) {
   return mergeSources(sources, config);
 }
 
-function processSegments(episode, manifest, config) {
+function processSegments(episode, manifest) {
   const { segments } = episode;
   if (segments) {
     manifest.transcriptions = manifest.transcriptions || [];
@@ -265,7 +263,7 @@ function processAttachments(episode, manifest, config) {
   }
 }
 
-function getCaptions(episode, config) {
+function getCaptions(episode) {
   const result = [];
   let attachments = episode.mediapackage?.attachments?.attachment;
   if (!(attachments instanceof Array)) {
@@ -350,10 +348,8 @@ export function episodeToManifest(ocResponse, config) {
     return result;
   }
   else {
-    console.error(ocResponse);
-    return null;
+    throw Error('No episode found');
   }
-
 }
 
 export default class EpisodeConversor {
