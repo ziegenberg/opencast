@@ -21,6 +21,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const webpack = require('webpack');
 
 
 module.exports = function (env) {
@@ -35,8 +36,7 @@ module.exports = function (env) {
     entry: './src/index.js',
     output: {
       path: path.join(__dirname,'target/paella-build'),
-      filename: 'paella-player.js',
-      sourceMapFilename: 'paella-player.js.map'
+      filename: 'paella-player.js'
     },
     devtool: 'source-map',
     devServer: {
@@ -94,6 +94,10 @@ module.exports = function (env) {
     },
 
     plugins: [
+      new webpack.SourceMapDevToolPlugin({
+        filename: '[file].js.map[query]'
+      }),
+
       new HtmlWebpackPlugin({
         template: './src/watch.html',
         filename: 'watch.html',
