@@ -115,7 +115,7 @@ function getMetadata(episode) {
   const creators = (Array.isArray(episode?.mediapackage?.creators) ?
     episode.mediapackage.creators :
     [episode?.mediapackage?.creators])
-            .map(creator => creator.creator);
+            .map(creator => creator?.creator);
 
   const result = {
     title,
