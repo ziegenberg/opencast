@@ -26,8 +26,6 @@ import getUserTrackingPluginContext from 'paella-user-tracking';
 
 import EpisodeConversor from './js/EpisodeConversor.js';
 
-// import DictionaryEs from './i18n/dict/es-ES.json';
-
 const dictionaries = require.context('./i18n/dict/', true, /\.json$/);
 function addDictionaries(player) {
   dictionaries.keys().forEach(k => {
