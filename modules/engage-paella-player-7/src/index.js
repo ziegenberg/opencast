@@ -26,7 +26,7 @@ import getUserTrackingPluginContext from 'paella-user-tracking';
 
 import EpisodeConversor from './js/EpisodeConversor.js';
 
-import DictionaryEs from './dictionary.es.json';
+import DictionaryEs from './i18n/dict/es-ES.json';
 
 const initParams = {
   customPluginContext: [
@@ -101,8 +101,11 @@ const initParams = {
   },
 
   loadDictionaries: player => {
-    player.setLanguage('es');
+    const lang = navigator.language;
+    player.setLanguage(lang);
+
     player.addDictionary('es', DictionaryEs);
+    player.addDictionary('es-ES', DictionaryEs);
   }
 };
 

@@ -7,11 +7,5 @@ module.exports = {
     },
     "globals": {
         "require": true,
-    },
-    "rules": {
-        "no-unused-vars": "warn",
-        "no-unsafe-optional-chaining": "warn",
-        "no-alert": "warn",
-        "no-console": "warn"
     }
 };
