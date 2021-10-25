@@ -26,7 +26,19 @@ import getUserTrackingPluginContext from 'paella-user-tracking';
 
 import EpisodeConversor from './js/EpisodeConversor.js';
 
-import DictionaryEs from './i18n/dict/es-ES.json';
+// import DictionaryEs from './i18n/dict/es-ES.json';
+
+const dictionaries = require.context('./i18n/dict/', true, /\.json$/);
+function addDictionaries(player) {
+  dictionaries.keys().forEach(k => {
+    const reResult = /([a-z-]+[A-Z_]+)\.json/.exec(k);
+    if (reResult) {
+      const dict = dictionaries(k);
+      const lang = reResult[1];
+      player.addDictionary(lang,dict);
+    }
+  });
+}
 
 const initParams = {
   customPluginContext: [
@@ -103,9 +115,7 @@ const initParams = {
   loadDictionaries: player => {
     const lang = navigator.language;
     player.setLanguage(lang);
-
-    player.addDictionary('es', DictionaryEs);
-    player.addDictionary('es-ES', DictionaryEs);
+    addDictionaries(player);
   }
 };
 
