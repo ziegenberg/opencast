@@ -27,13 +27,20 @@ import getUserTrackingPluginContext from 'paella-user-tracking';
 import EpisodeConversor from './js/EpisodeConversor.js';
 
 const dictionaries = require.context('./i18n/dict/', true, /\.json$/);
+const languages = {};
 function addDictionaries(player) {
   dictionaries.keys().forEach(k => {
     const reResult = /([a-z-]+[A-Z_]+)\.json/.exec(k);
-    if (reResult) {
+    const localization = reResult && reResult[1];
+    if (localization) {
       const dict = dictionaries(k);
-      const lang = reResult[1];
-      player.addDictionary(lang,dict);
+      player.addDictionary(localization,dict);
+
+      const lang = localization.substr(0,2);
+      if (!languages[lang]) {
+        languages[lang] = true;
+        player.addDictionary(lang,dict);
+      }
     }
   });
 }
