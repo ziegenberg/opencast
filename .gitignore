@@ -49,3 +49,6 @@ Makefile
 
 # Ignore phantomjs logs
 phantomjsdriver.log
+
+# Ignode python cache folder
+__pycache__
