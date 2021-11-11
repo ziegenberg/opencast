@@ -46,7 +46,7 @@ module.exports = function (env) {
         'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, PATCH, OPTIONS',
         'Access-Control-Allow-Headers': 'X-Requested-With, content-type, Authorization'
       },
-      static: { 
+      static: {
         directory: path.join(__dirname, '../../etc/ui-config/mh_default_org/paella7'),
         publicPath: '/ui/config/paella7'
       },
@@ -64,7 +64,7 @@ module.exports = function (env) {
         '/play/**': proxyOpts,
         '/usertracking/**': proxyOpts
       }
-      
+
     },
 
     module: {

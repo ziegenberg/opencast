@@ -45,7 +45,7 @@ export default class DescriptionPlugin extends PopUpButtonPlugin {
         <div class="description-plugin">
             <div class="table-column">
                 <div class="table-item">
-                    ${translate('Title')}: 
+                    ${translate('Title')}:
                     <span class="item-value">${title}</span>
                 </div>
                 <div class="table-item">
@@ -55,7 +55,7 @@ export default class DescriptionPlugin extends PopUpButtonPlugin {
                     </span>
                 </div>
                 <div class="table-item">
-                    ${translate('Series')}: 
+                    ${translate('Series')}:
                     <span class="item-value">
                         <a href="/engage/ui/index.html?epFrom=${series}">${series}</a>
                     </span>
@@ -83,7 +83,7 @@ export default class DescriptionPlugin extends PopUpButtonPlugin {
                     <span class="item-value">${language}</span>
                 </div>
                 <div class="table-item">
-                    ${translate('Description')}: 
+                    ${translate('Description')}:
                     <span class="item-value"></span>
                 </div>
             </div>

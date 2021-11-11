@@ -1,7 +1,7 @@
 module.exports = {
     "extends": "../../docs/checkstyle/eslintrc.js",
     "parser": "@babel/eslint-parser",
-    "parserOptions": {        
+    "parserOptions": {
         "sourceType": "module",
         "ecmaVersion": 2017
     },

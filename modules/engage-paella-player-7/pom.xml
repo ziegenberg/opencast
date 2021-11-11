@@ -35,13 +35,13 @@
                   <arguments>ci</arguments>
                 </configuration>
               </execution>
-              
+
               <execution>
                 <phase>validate</phase>
                 <id>check</id>
                 <goals>
                   <goal>exec</goal>
-                </goals>                
+                </goals>
                 <configuration>
                   <executable>npm</executable>
                   <arguments>run check</arguments>

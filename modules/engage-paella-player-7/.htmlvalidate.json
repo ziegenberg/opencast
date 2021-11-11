@@ -19,7 +19,7 @@
       "prefer-tbody": "off",
       "script-type": "off",
       "unrecognized-char-ref": "warn",
-  
+
       "attribute-allowed-values": "off",
       "element-permitted-content": "warn",
       "element-permitted-occurrences": "error",
@@ -30,7 +30,7 @@
       "no-multiple-main": "warn",
       "script-element": "error",
       "void-content": "error",
-  
+
       "aria-label-misuse": "error",
       "empty-heading": "off",
       "empty-title": "warn",
@@ -46,7 +46,7 @@
       "wcag/h37": ["error", {"alias": ["ng-attr-alt"]}],
       "wcag/h67": "error",
       "wcag/h71": "error",
-  
+
       "long-title": "off",
       "attr-case": "off",
       "attr-quotes": "off",
@@ -59,7 +59,7 @@
       "no-self-closing": "error",
       "no-trailing-whitespace": "error",
       "void-style": "off",
-  
+
       "heading-level": "off",
       "no-missing-references": "off",
       "no-utf8-bom": "error"
