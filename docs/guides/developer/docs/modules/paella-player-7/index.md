@@ -20,13 +20,13 @@ npm ci
 
 ### Run Paella Player using the webpack proxy
 
-By default, Paella Player will point to `http://localhost:8080` to redirect all the requests to Opencast, so if you compile and run Opencast in your local machine. To do it, you simply have to execute the following npm command:
+By default, Paella Player will point to `http://localhost:8080` to redirect all the requests to Opencast, so if you compile and run Opencast on your local machine. To do it, you simply have to execute the following npm command:
 
 ```sh
 npm run dev
 ```
 
-But you also can debug and develop Paella Player without having an Opencast installation in your local machine. To do it, simply specify the `server` environment variable when you launch the npm command:
+But you also can debug and develop Paella Player without having an Opencast installation on your local machine. To do it, simply specify the `server` environment variable when you launch the npm command:
 
 ```sh
 npm run dev -- --env server=https://develop.opencast.org
@@ -64,7 +64,7 @@ npm run html-linter
 npm run html-validate
 ```
 
-Or you can use this command to execute the all previous commands:
+Or you can use this command to execute all the previous commands together:
 
 ```sh
 npm run check

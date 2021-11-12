@@ -9,12 +9,12 @@ It is easy to install and customize for your own needs.
 Paella 7 will be a complete rewrite of Paella, aiming several issues
 
 - Allow easier integration in other platforms by leaving out the singleton design pattern.
-- Easier stlyling and accessibility support.
-- Reduce the number of dependences.
+- Easier styling and accessibility support.
+- Reduce the number of dependencies.
 - Allow easier long-term maintenance of the project.
 - Solve the technical debt of 10 years of development.
 
-Have a look to the paella 7 [repository](https://github.com/polimediaupv/paella-core)
+Have a look at the paella 7 [repository](https://github.com/polimediaupv/paella-core)
 or [documentation page](https://github.com/polimediaupv/paella-core/blob/main/doc/index.md).
 
 Warning
@@ -35,7 +35,7 @@ The default tenant for opencast is `mh_default_org`
 Select the Opencast Player
 ------------------------------
 
-To activate the player set in each tenant the property `prop.player` in the file `.../etc/org.opencastproject.organization-<tenant>.cfg`.
+To activate the player set for each tenant the property `prop.player` in the file `.../etc/org.opencastproject.organization-<tenant>.cfg`.
 
 
     prop.player=/paella7/ui/watch.html?id=#{id}
