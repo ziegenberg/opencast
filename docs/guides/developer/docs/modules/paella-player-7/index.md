@@ -3,7 +3,7 @@
 
 ## Requisites
 
-It is necessary to have Node.js installed. The development of Paella Player has been carried out with version 14, but it is possible to work with earlier versions.
+Node.js version 14 or higher is required.
 
 ## Debug and develop
 
