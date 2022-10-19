@@ -13,7 +13,7 @@
   <properties>
     <opencast.basedir>${project.basedir}/../..</opencast.basedir>
     <checkstyle.skip>false</checkstyle.skip>
-    <java-jwt.version>3.18.1</java-jwt.version>
+    <java-jwt.version>3.19.2</java-jwt.version>
     <jwks-rsa.version>0.19.0</jwks-rsa.version>
   </properties>
   <dependencies>
