@@ -1,0 +1,10 @@
+{
+    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+    "branchPrefix": "test-renovate/",
+    "onboardingConfig": { "extends": ["config:base"] },
+    "onboarding": true,
+    "requireConfig": "optional", 
+    "platform": "github",
+    "includeForks": true,
+    "repositories": ["ziegenberg/opencast"]
+}
