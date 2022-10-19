@@ -18,7 +18,7 @@
     <dependency>
       <groupId>com.microsoft.cognitiveservices.speech</groupId>
       <artifactId>client-sdk</artifactId>
-      <version>1.21.0</version>
+      <version>1.24.0</version>
     </dependency>
     <dependency>
       <groupId>org.opencastproject</groupId>
