@@ -1,0 +1,30 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "gitAuthor": "Renovate Bot <renovate@opencast.org>",
+  "onboarding": true,
+  "requireConfig": "optional",
+  "platform": "github",
+  "extends": ["config:base"],
+  "branchPrefix": "test-renovate2/",
+  "configMigration": true,
+  "includeForks": true,
+  "repositories": [
+    "ziegenberg/opencast",
+    "ziegenberg/opencast-editor"
+  ],
+  "enabledManagers": [
+    "npm",
+    "dockerfile"
+  ],
+  "labels": ["dependencies"],
+  "packageRules": [
+    {
+      "matchPackagePatterns": ["eslint"],
+      "addLabels": ["linting"]
+    },
+    {
+        "matchPaths": ["/docs/guides"],
+        "groupName": "docs"
+    }
+  ]
+}
